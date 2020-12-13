@@ -17,6 +17,7 @@ namespace Irf_project
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace Irf_project
                     homerseklet.Add(dl);
                 }
             }
+            
 
         }
 
@@ -62,9 +64,24 @@ namespace Irf_project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string torlendo = textBox1.Text;
 
+            //dynamic aktualis = dataGridView1.CurrentCell;
+            var torlendo = (from x in homerseklet
+                           where x.datum.Contains(textBox1.Text)
+                           select x).FirstOrDefault();
+
+            homerseklet.Remove(torlendo);
+
+            dataGridView1.Refresh();
+        
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
