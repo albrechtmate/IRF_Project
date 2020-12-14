@@ -121,4 +121,7 @@
   <data name="idojaras-appok-nyitokep-V2-opt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idojaras-appok-nyitokep-V2-opt.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="miui-8-weather-background-minimal-hd-wallpaper-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miui-8-weather-background-minimal-hd-wallpaper-thumb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

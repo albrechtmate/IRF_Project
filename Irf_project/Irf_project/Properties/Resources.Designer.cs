@@ -69,5 +69,15 @@ namespace Irf_project.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap miui_8_weather_background_minimal_hd_wallpaper_thumb {
+            get {
+                object obj = ResourceManager.GetObject("miui-8-weather-background-minimal-hd-wallpaper-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Irf_project
 {
     public partial class Form1 : Form
@@ -18,12 +19,27 @@ namespace Irf_project
         public Form1()
         {
             InitializeComponent();
+
+            hidethings();
+
+            
+        }
+
+        private void hidethings()
+        {
+            label3.Hide();
+            label4.Hide();
+            label5.Hide();
+            label6.Show();
             button2.Hide();
             button3.Hide();
             button4.Hide();
+            button6.Hide();
             textBox1.Hide();
             dataGridView1.Hide();
             label1.Hide();
+            pictureBox1.Hide();
+            pictureBox2.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,14 +68,19 @@ namespace Irf_project
                     dl.maxfok = Convert.ToDouble(sor[1]);
                     dl.minfok = Convert.ToDouble(sor[2]);
                     dl.kozepfok = Convert.ToDouble(sor[3]);
-                    dl.szelsebesseg = Convert.ToDouble(sor[4]);
+                    dl.felhomeret = Convert.ToDouble(sor[4]);
 
                     homerseklet.Add(dl);
                 }
             }
+
+
+
+            label6.Hide();
             button2.Show();
             button3.Show();
             button4.Show();
+            button6.Show();
             label1.Show();
             textBox1.Show();
             label2.Text = "CSV kiválasztva, nyomd meg a Megjelenítés gombot!";
@@ -75,17 +96,24 @@ namespace Irf_project
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            { //dynamic aktualis = dataGridView1.CurrentCell;
 
-            //dynamic aktualis = dataGridView1.CurrentCell;
+                var torlendo = (from x in homerseklet
+                                where x.datum.Contains(textBox1.Text)
+                                select x).FirstOrDefault();
 
-            var torlendo = (from x in homerseklet
-                           where x.datum.Contains(textBox1.Text)
-                           select x).FirstOrDefault();
+                homerseklet.Remove(torlendo);
 
-            homerseklet.Remove(torlendo);
+                dataGridView1.Refresh();
+            }
+            catch (Exception c)
+            {
 
-            dataGridView1.RefreshEdit();
-        
+                MessageBox.Show(c.Message);
+            }
+           
+
 
         }
 
@@ -127,16 +155,48 @@ namespace Irf_project
 
         private void button6_Click(object sender, EventArgs e)
         {
+            label3.Show();
+            label4.Show();
+            label5.Show();
+            dataGridView1.Hide();
+            double atlagFok = homerseklet.Average(t => t.kozepfok);
             double maxFok = homerseklet.Max(t => t.maxfok);
             double minFok = homerseklet.Min(t => t.minfok);
-            double szelSeb = homerseklet.Average(t => t.szelsebesseg);
+            double felhomeret = homerseklet.Average(t => t.felhomeret);
+            
+            label3.Text = "Maximum hőmérséklet: (C) " + Math.Round(maxFok).ToString();
+            label4.Text = "Minimum hőmérséklet: (C) " + Math.Round(minFok).ToString();
+            label5.Text = "Felhőtakarót: (%) " + Math.Round(felhomeret).ToString();
+            pictureBox1.Show();
+            pictureBox2.Show();
 
-            label3.Text = Math.Round(maxFok).ToString();
-            label4.Text = Math.Round(minFok).ToString();
-            label5.Text = Math.Round(szelSeb).ToString();
+            if (atlagFok>10)
+            {
+                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/meleg.png");
+            }
+            else
+            {
+                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/hideg.png");
+            }
+
+            if (felhomeret > 70)
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/felho.png");
+            }
+            else if(felhomeret < 40)
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/nap.png");
+            }
+            else
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/naposfelhos.png");
+            }
 
 
+        }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
 
         }
     }

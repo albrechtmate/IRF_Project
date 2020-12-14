@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hideg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ikon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -84,6 +90,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\idojaras-appok-nyitokep-V2-opt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Képek\felho.png" />
+    <Content Include="Képek\hideg.png" />
+    <Content Include="Képek\meleg.png" />
+    <Content Include="Képek\nap.png" />
+    <Content Include="Képek\naposfelhos.png" />
+    <None Include="Resources\miui-8-weather-background-minimal-hd-wallpaper-thumb.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
