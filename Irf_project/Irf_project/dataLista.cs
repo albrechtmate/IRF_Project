@@ -12,7 +12,7 @@ namespace Irf_project
         public double maxfok { get; set; }
         public double minfok { get; set; }
         public double kozepfok { get; set; }
-        public double felhotakaro { get; set; }
+        public double szelsebesseg { get; set; }
 
     }
 }

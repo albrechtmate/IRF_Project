@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,12 @@ namespace Irf_project
         public Form1()
         {
             InitializeComponent();
-            
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
+            textBox1.Hide();
+            dataGridView1.Hide();
+            label1.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,12 +34,10 @@ namespace Irf_project
 
             // Opcionális rész
            
-            ofd.Filter = "Comma Seperated Values (*.csv)|*.csv"; // A kiválasztható fájlformátumokat adjuk meg ezzel a sorral. Jelen esetben csak a csv-t fogadjuk el
-            ofd.DefaultExt = "csv"; // A csv lesz az alapértelmezetten kiválasztott kiterjesztés
-            ofd.AddExtension = true; // Ha ez igaz, akkor hozzáírja a megadott fájlnévhez a kiválasztott kiterjesztést, de érzékeli, ha a felhasználó azt is beírta és nem fogja duplán hozzáírni
-
+            ofd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            ofd.DefaultExt = "csv"; 
+            ofd.AddExtension = true;
             if (ofd.ShowDialog() != DialogResult.OK) return;
-
             using (StreamReader sr = new StreamReader(ofd.FileName, Encoding.Default))
             {
 
@@ -48,17 +52,24 @@ namespace Irf_project
                     dl.maxfok = Convert.ToDouble(sor[1]);
                     dl.minfok = Convert.ToDouble(sor[2]);
                     dl.kozepfok = Convert.ToDouble(sor[3]);
-                    dl.felhotakaro = Convert.ToDouble(sor[4]);
+                    dl.szelsebesseg = Convert.ToDouble(sor[4]);
 
                     homerseklet.Add(dl);
                 }
             }
-            
+            button2.Show();
+            button3.Show();
+            button4.Show();
+            label1.Show();
+            textBox1.Show();
+            label2.Text = "CSV kiválasztva, nyomd meg a Megjelenítés gombot!";
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            dataGridView1.Show();
             dataGridView1.DataSource = homerseklet;
         }
 
@@ -66,22 +77,67 @@ namespace Irf_project
         {
 
             //dynamic aktualis = dataGridView1.CurrentCell;
+
             var torlendo = (from x in homerseklet
                            where x.datum.Contains(textBox1.Text)
                            select x).FirstOrDefault();
 
             homerseklet.Remove(torlendo);
 
-            dataGridView1.Refresh();
+            dataGridView1.RefreshEdit();
         
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
+        }
+       
+
+        private void textBox1_Validating_1(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex("^[0-9]{8}$");
+            if (regex.IsMatch(textBox1.Text))
+            {
+                e.Cancel = false;
+
+
+                if (!String.IsNullOrWhiteSpace(textBox1.Text))
+                    textBox1.BackColor = Color.LightGreen;
+                else
+                    textBox1.BackColor = Color.White;
+            }
+            else
+            {
+                e.Cancel = true;
+                textBox1.BackColor = Color.MediumVioletRed;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            double maxFok = homerseklet.Max(t => t.maxfok);
+            double minFok = homerseklet.Min(t => t.minfok);
+            double szelSeb = homerseklet.Average(t => t.szelsebesseg);
+
+            label3.Text = Math.Round(maxFok).ToString();
+            label4.Text = Math.Round(minFok).ToString();
+            label5.Text = Math.Round(szelSeb).ToString();
+
+
+
+
+        }
     }
 }
