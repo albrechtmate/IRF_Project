@@ -15,7 +15,6 @@ namespace Irf_project
             AutoSize = false;
             Width = 100;
             Height = Width;
-            Paint += Ikon_Paint;
         }
 
         private void Ikon_Paint(object sender, PaintEventArgs e)

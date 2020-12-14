@@ -48,19 +48,19 @@
             this.datumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxfokDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minfokDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataListaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataListaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.dataListaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataListaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataListaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataListaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -156,7 +156,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Nunito Light", 16F);
-            this.label2.Location = new System.Drawing.Point(674, 683);
+            this.label2.Location = new System.Drawing.Point(613, 673);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(315, 44);
             this.label2.TabIndex = 8;
@@ -177,7 +177,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nunito Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(316, 141);
+            this.label3.Location = new System.Drawing.Point(217, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(208, 55);
             this.label3.TabIndex = 11;
@@ -187,7 +187,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nunito Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(720, 68);
+            this.label4.Location = new System.Drawing.Point(573, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(208, 55);
             this.label4.TabIndex = 12;
@@ -197,7 +197,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Nunito Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(1179, 141);
+            this.label5.Location = new System.Drawing.Point(1079, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(208, 55);
             this.label5.TabIndex = 13;
@@ -257,6 +257,10 @@
             this.minfokDataGridViewTextBoxColumn1.Name = "minfokDataGridViewTextBoxColumn1";
             this.minfokDataGridViewTextBoxColumn1.Width = 150;
             // 
+            // dataListaBindingSource4
+            // 
+            this.dataListaBindingSource4.DataSource = typeof(Irf_project.dataLista);
+            // 
             // dataListaBindingSource3
             // 
             this.dataListaBindingSource3.DataSource = typeof(Irf_project.dataLista);
@@ -272,10 +276,6 @@
             // dataListaBindingSource
             // 
             this.dataListaBindingSource.DataSource = typeof(Irf_project.dataLista);
-            // 
-            // dataListaBindingSource4
-            // 
-            this.dataListaBindingSource4.DataSource = typeof(Irf_project.dataLista);
             // 
             // Form1
             // 
@@ -303,11 +303,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListaBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
