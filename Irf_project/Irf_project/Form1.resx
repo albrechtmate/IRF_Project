@@ -121,27 +121,21 @@
     <value>True</value>
   </metadata>
   <metadata name="dataListaBindingSource4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>26, 5237</value>
-  </metadata>
-  <metadata name="felhomeret.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataListaBindingSource4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>26, 5237</value>
+    <value>1554, 49151</value>
   </metadata>
   <metadata name="dataListaBindingSource3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>14034, 5165</value>
+    <value>49151, 49151</value>
   </metadata>
   <metadata name="dataListaBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>11043, 5165</value>
+    <value>49151, 49151</value>
   </metadata>
   <metadata name="dataListaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>8046, 5165</value>
+    <value>49151, 49151</value>
   </metadata>
   <metadata name="dataListaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>5165, 5165</value>
+    <value>49151, 49151</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>139</value>
+    <value>89</value>
   </metadata>
 </root>

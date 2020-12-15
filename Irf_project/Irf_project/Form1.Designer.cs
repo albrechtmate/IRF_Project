@@ -30,21 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.felhomeret = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.felhomeret = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxfokDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minfokDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +61,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(773, 737);
+            this.button1.Location = new System.Drawing.Point(765, 652);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 88);
             this.button1.TabIndex = 0;
@@ -73,30 +69,10 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1178, 776);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(556, 102);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Megjelenítés";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(26, 701);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(457, 102);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Törlés";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(26, 660);
+            this.textBox1.Location = new System.Drawing.Point(1018, 714);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(457, 26);
             this.textBox1.TabIndex = 4;
@@ -114,64 +90,35 @@
             this.maxfokDataGridViewTextBoxColumn1,
             this.minfokDataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.dataListaBindingSource4;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1659, 528);
             this.dataGridView1.TabIndex = 5;
             // 
-            // felhomeret
-            // 
-            this.felhomeret.DataPropertyName = "felhomeret";
-            this.felhomeret.HeaderText = "felhomeret";
-            this.felhomeret.MinimumWidth = 8;
-            this.felhomeret.Name = "felhomeret";
-            this.felhomeret.Width = 150;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(662, 898);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(378, 88);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Exportálás";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(21, 621);
+            this.label1.Location = new System.Drawing.Point(1013, 682);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(482, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Írd be, a törölni kívánt napot (20200101)- formátumban";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Nunito Light", 16F);
-            this.label2.Location = new System.Drawing.Point(613, 673);
+            this.label2.Location = new System.Drawing.Point(674, 590);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(315, 44);
             this.label2.TabIndex = 8;
             this.label2.Text = "Töltsd be a CSV file-t";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1178, 884);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(556, 116);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Kirajzolás";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label3
             // 
@@ -202,7 +149,6 @@
             this.label5.Size = new System.Drawing.Size(208, 55);
             this.label5.TabIndex = 13;
             this.label5.Text = "labelFok3";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox1
             // 
@@ -233,29 +179,37 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Időjárás app";
             // 
+            // felhomeret
+            // 
+            this.felhomeret.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.felhomeret.DataPropertyName = "felhomeret";
+            this.felhomeret.HeaderText = "Felhőméret (%)";
+            this.felhomeret.MinimumWidth = 8;
+            this.felhomeret.Name = "felhomeret";
+            // 
             // datumDataGridViewTextBoxColumn1
             // 
+            this.datumDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.datumDataGridViewTextBoxColumn1.DataPropertyName = "datum";
-            this.datumDataGridViewTextBoxColumn1.HeaderText = "datum";
+            this.datumDataGridViewTextBoxColumn1.HeaderText = "Dátum";
             this.datumDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.datumDataGridViewTextBoxColumn1.Name = "datumDataGridViewTextBoxColumn1";
-            this.datumDataGridViewTextBoxColumn1.Width = 150;
             // 
             // maxfokDataGridViewTextBoxColumn1
             // 
+            this.maxfokDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.maxfokDataGridViewTextBoxColumn1.DataPropertyName = "maxfok";
-            this.maxfokDataGridViewTextBoxColumn1.HeaderText = "maxfok";
+            this.maxfokDataGridViewTextBoxColumn1.HeaderText = "Maximum Fok (C)";
             this.maxfokDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.maxfokDataGridViewTextBoxColumn1.Name = "maxfokDataGridViewTextBoxColumn1";
-            this.maxfokDataGridViewTextBoxColumn1.Width = 150;
             // 
             // minfokDataGridViewTextBoxColumn1
             // 
+            this.minfokDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.minfokDataGridViewTextBoxColumn1.DataPropertyName = "minfok";
-            this.minfokDataGridViewTextBoxColumn1.HeaderText = "minfok";
+            this.minfokDataGridViewTextBoxColumn1.HeaderText = "Minimum Fok (C)";
             this.minfokDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.minfokDataGridViewTextBoxColumn1.Name = "minfokDataGridViewTextBoxColumn1";
-            this.minfokDataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataListaBindingSource4
             // 
@@ -289,14 +243,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -316,15 +266,11 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource dataListaBindingSource;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.BindingSource dataListaBindingSource1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -334,12 +280,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.BindingSource dataListaBindingSource3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource dataListaBindingSource4;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn felhomeret;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxfokDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn minfokDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.BindingSource dataListaBindingSource4;
     }
 }
 

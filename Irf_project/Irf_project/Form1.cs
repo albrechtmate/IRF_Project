@@ -36,10 +36,6 @@ namespace Irf_project
             label4.Hide();
             label5.Hide();
             label6.Show();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            button6.Hide();
             textBox1.Hide();
             dataGridView1.Hide();
             label1.Hide();
@@ -82,26 +78,47 @@ namespace Irf_project
 
 
             label6.Hide();
-            button2.Show();
-            button3.Show();
-            button4.Show();
-            button6.Show();
-            label1.Show();
-            textBox1.Show();
+           
             label2.Text = "CSV kiválasztva, nyomd meg a Megjelenítés gombot!";
 
+            MegjelGomb megjelGomb = new MegjelGomb();
+            this.Controls.Add(megjelGomb);
+            megjelGomb.Top = this.Height - 200;
+            megjelGomb.Left = 0;
+            megjelGomb.Click += megjelGomb_Click;
+
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void megjelGomb_Click(object sender, EventArgs e)
         {
+            label1.Show();
+            textBox1.Show();
             dataGridView1.Show();
             dataGridView1.DataSource = homerseklet;
+            GombExport exGomb = new GombExport();
+            this.Controls.Add(exGomb);
+            exGomb.Top = this.Height - 200;
+            exGomb.Left = 400;
+            exGomb.Click += exGomb_Click;
+
+            GombPaint paintGomb = new GombPaint();
+            this.Controls.Add(paintGomb);
+
+            paintGomb.Left = 600;
+            paintGomb.Top = this.Height - 200;
+            paintGomb.Click += paintGomb_Click;
+
+            GombTorles torlesGomb = new GombTorles();
+            this.Controls.Add(torlesGomb);
+            torlesGomb.Top = this.Height - 200;
+            torlesGomb.Left = 800;
+            torlesGomb.Click += torlesGomb_Click;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void torlesGomb_Click(object sender, EventArgs e)
         {
-
             var torlendo = (from x in homerseklet
                             where x.datum.Contains(textBox1.Text)
                             select x).FirstOrDefault();
@@ -109,40 +126,52 @@ namespace Irf_project
             homerseklet.Remove(torlendo);
 
             dataGridView1.Refresh();
-
-
-
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void paintGomb_Click(object sender, EventArgs e)
         {
-            this.Validate();
-        }
+            label3.Show();
+            label4.Show();
+            label5.Show();
+            dataGridView1.Hide();
+            atlagFok = homerseklet.Average(t => t.kozepfok);
+            maxFok = homerseklet.Max(t => t.maxfok);
+            minFok = homerseklet.Min(t => t.minfok);
+            felhom = homerseklet.Average(t => t.felhomeret);
 
+            label3.Text = "Maximum hőmérséklet: (C) " + Math.Round(maxFok).ToString();
+            label4.Text = "Minimum hőmérséklet: (C) " + Math.Round(minFok).ToString();
+            label5.Text = "Felhőtakarót: (%) " + Math.Round(felhom).ToString();
+            pictureBox1.Show();
+            pictureBox2.Show();
 
-        private void textBox1_Validating_1(object sender, CancelEventArgs e)
-        {
-            Regex regex = new Regex("^[0-9]{8}$");
-            if (regex.IsMatch(textBox1.Text))
+            if (atlagFok > 10)
             {
-                e.Cancel = false;
-
-
-                if (!String.IsNullOrWhiteSpace(textBox1.Text))
-                    textBox1.BackColor = Color.LightGreen;
-                else
-                    textBox1.BackColor = Color.White;
+                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/meleg.png");
             }
             else
             {
-                e.Cancel = true;
-                textBox1.BackColor = Color.MediumVioletRed;
+                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/hideg.png");
             }
+
+            if (felhom > 70)
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/felho.png");
+            }
+            else if (felhom < 40)
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/nap.png");
+            }
+            else
+            {
+                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/naposfelhos.png");
+            }
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void exGomb_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlxs", ValidateNames = true })
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -198,56 +227,91 @@ namespace Irf_project
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+ 
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+        private void textBox1_Validating_1(object sender, CancelEventArgs e)
         {
-            label3.Show();
-            label4.Show();
-            label5.Show();
-            dataGridView1.Hide();
-            atlagFok = homerseklet.Average(t => t.kozepfok);
-            maxFok = homerseklet.Max(t => t.maxfok);
-            minFok = homerseklet.Min(t => t.minfok);
-            felhom = homerseklet.Average(t => t.felhomeret);
-
-            label3.Text = "Maximum hőmérséklet: (C) " + Math.Round(maxFok).ToString();
-            label4.Text = "Minimum hőmérséklet: (C) " + Math.Round(minFok).ToString();
-            label5.Text = "Felhőtakarót: (%) " + Math.Round(felhom).ToString();
-            pictureBox1.Show();
-            pictureBox2.Show();
-
-            if (atlagFok > 10)
+            Regex regex = new Regex("^[0-9]{8}$");
+            if (regex.IsMatch(textBox1.Text))
             {
-                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/meleg.png");
+                e.Cancel = false;
+
+
+                if (!String.IsNullOrWhiteSpace(textBox1.Text))
+                    textBox1.BackColor = Color.LightGreen;
+                else
+                    textBox1.BackColor = Color.White;
             }
             else
             {
-                pictureBox1.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/hideg.png");
+                e.Cancel = true;
+                textBox1.BackColor = Color.MediumVioletRed;
             }
-
-            if (felhom > 70)
-            {
-                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/felho.png");
-            }
-            else if (felhom < 40)
-            {
-                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/nap.png");
-            }
-            else
-            {
-                pictureBox2.Image = new Bitmap("C:/Users/Matu/source/repos/IRF_Project/Irf_project/Irf_project/Képek/naposfelhos.png");
-            }
-
-
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
 
+                    ws.Cells[1, 1] = "Dátum";
+                    ws.Cells[1, 2] = "Napi maximum Fok";
+                    ws.Cells[1, 3] = "Napi minimum Fok";
+                    ws.Cells[1, 4] = "Napi középhőmérséklet";
+                    ws.Cells[1, 5] = "Felhőtakaró";
+
+                    ws.Cells[1, 6] = "Heti max Fok";
+                    ws.Cells[1, 7] = "Heti min Fok";
+                    ws.Cells[1, 8] = "Heti átlag hőmérséklet";
+
+                    ws.Cells[2, 6] = maxFok;
+                    ws.Cells[2, 7] = minFok;
+                    ws.Cells[2, 8] = atlagFok;
+
+
+                    int i = 2;
+
+                    foreach (dataLista item in homerseklet)
+                    {
+                        ws.Cells[i, 1] = item.datum;
+                        ws.Cells[i, 2] = item.maxfok;
+                        ws.Cells[i, 3] = item.minfok;
+                        ws.Cells[i, 4] = item.kozepfok;
+                        ws.Cells[i, 5] = item.felhomeret;
+
+                        i++;
+                    }
+
+                    wb.SaveAs(sfd.FileName,
+                              XlFileFormat.xlWorkbookDefault,
+                              Type.Missing,
+                              Type.Missing,
+                              true,
+                              false,
+                              XlSaveAsAccessMode.xlNoChange,
+                              XlSaveConflictResolution.xlLocalSessionChanges,
+                              Type.Missing,
+                              Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Excel kész!");
+
+
+
+                }
+            }
         }
+
     }
 }

@@ -53,10 +53,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hideg.cs">
+    <Compile Include="GombExport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Ikon.cs">
+    <Compile Include="GombPaint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GombTorles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MegjelGomb.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -92,11 +98,15 @@
     <None Include="Resources\idojaras-appok-nyitokep-V2-opt.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Képek\excel.png" />
     <Content Include="Képek\felho.png" />
     <Content Include="Képek\hideg.png" />
     <Content Include="Képek\meleg.png" />
     <Content Include="Képek\nap.png" />
     <Content Include="Képek\naposfelhos.png" />
+    <Content Include="Képek\paint.png" />
+    <Content Include="Képek\show.png" />
+    <Content Include="Képek\torles.png" />
     <None Include="Resources\miui-8-weather-background-minimal-hd-wallpaper-thumb.jpg" />
   </ItemGroup>
   <ItemGroup>
